@@ -1,9 +1,9 @@
+import Resume from "./page/resume";
+
 function App() {
   return (
-    <div className="bg-neutral-100">
-      <header className="text-orange-700">
-        <p>시작</p>
-      </header>
+    <div className="w-screen h-screen bg-neutral-100">
+      <Resume />
     </div>
   );
 }
