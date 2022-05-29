@@ -1,9 +1,9 @@
-import Resume from "./page/resume";
+import Root from './routes';
 
 function App() {
   return (
     <div className="w-screen h-screen bg-neutral-100">
-      <Resume />
+      <Root />
     </div>
   );
 }
