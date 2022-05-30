@@ -1,7 +1,7 @@
 const Resume = () => {
   return (
     <div className="flex flex-col container mx-auto px-24 py-20 justify-center">
-      <div className="text-2xl font-bold mb-8">기술 이력서</div>
+      <div className="text-3xl font-bold mb-8">기술 이력서</div>
       <div className="mb-4">
         <div className="text-xl font-bold mb-2">
           프론트엔드 엔지니어 정혜경입니다.
