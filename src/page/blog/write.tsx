@@ -1,4 +1,4 @@
-import Writer from "../../components/Writer";
+import Writer from "../../container/Writer";
 
 const Write = () => {
   return (
