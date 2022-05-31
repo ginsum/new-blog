@@ -1,3 +1,6 @@
+import ListCard from "../../components/ListCard";
+import { list } from "../../mockData";
+
 const BlogList = () => (
   <div className="flex flex-col container mx-auto w-2/5 py-20 justify-center">
     <div className="text-3xl font-bold mb-8">BlogList</div>
@@ -9,49 +12,9 @@ const BlogList = () => (
         <div>github</div>
       </div>
     </div>
-
-    <div className="my-10">
-      <div className="text-2xl font-bold mb-4">title title title</div>
-      <div>
-        content content content content content content content content content
-        content content content content content content content content content
-        content content ontent content content content content content content
-        content content content content content content content content content
-        content content content content
-      </div>
-    </div>
-    <div className="my-10">
-      <div className="text-2xl font-bold mb-4">title title title</div>
-      <div>
-        content content content content content content content content content
-        content content content content content content content content content
-        content content
-      </div>
-    </div>
-    <div className="my-10">
-      <div className="text-2xl font-bold mb-4">title title title</div>
-      <div>
-        content content content content content content content content content
-        content content content content content content content content content
-        content content
-      </div>
-    </div>
-    <div className="my-10">
-      <div className="text-2xl font-bold mb-4">title title title</div>
-      <div>
-        content content content content content content content content content
-        content content content content content content content content content
-        content content
-      </div>
-    </div>
-    <div className="my-10">
-      <div className="text-2xl font-bold mb-4">title title title</div>
-      <div>
-        content content content content content content content content content
-        content content content content content content content content content
-        content content
-      </div>
-    </div>
+    {list.map(({ title, content }) => (
+      <ListCard title={title} content={content} />
+    ))}
   </div>
 );
 
