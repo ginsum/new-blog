@@ -1,5 +1,5 @@
 import ListCard from "../../components/ListCard";
-import { list } from "../../mockData";
+import { list } from "../../data/mockData";
 
 const BlogList = () => (
   <div className="flex flex-col container mx-auto w-2/5 py-20 justify-center">
