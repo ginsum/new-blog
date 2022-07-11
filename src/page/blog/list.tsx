@@ -1,16 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from 'react';
 
-import { getBlogPost } from "../../firebase/content";
-import ListCard from "../../components/ListCard";
-import { list } from "../../data/mockData";
+import { getBlogPost } from '../../firebase/content';
+import ListCard from '../../components/ListCard';
+// import { list } from '../../data/mockData';
 
 const BlogList = () => {
+  const [list, setList] = useState<Record<string, any>[] | undefined>([
+    {
+      title: '',
+      content: '',
+    },
+  ]);
+
+  const getPost = async () => {
+    const getList = await getBlogPost();
+    setList(getList);
+  };
+
   useEffect(() => {
-    getBlogPost();
+    getPost();
   }, []);
 
   return (
-    <div className="flex flex-col container mx-auto w-2/5 py-10 justify-center">
+    <div className="flex flex-col container h-screen mx-auto w-2/5 py-10 justify-center">
       <div className="text-3xl font-bold mb-8 text-blue-600">BlogList</div>
       <div className="flex mb-8">
         <div className="w-16 h-16 rounded-full bg-slate-400 mr-6 overflow-hidden">
@@ -21,7 +33,7 @@ const BlogList = () => {
           <div>github link</div>
         </div>
       </div>
-      {list.map(({ title, content }) => (
+      {list?.map(({ title, content }) => (
         <ListCard title={title} content={content} />
       ))}
     </div>
