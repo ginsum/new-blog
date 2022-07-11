@@ -47,14 +47,14 @@ const Resume = () => {
       </div>
       <hr />
 
-      {/* <div className="my-8">
+      <div className="my-8">
         <div className="text-xl font-bold mb-2">교육</div>
         <span>학력</span>
         <span>대학교</span>
       </div>
       <hr />
 
-      <div className="my-8">
+      {/* <div className="my-8">
         <div className="text-xl font-bold mb-2">기술</div>
         <span>react</span>
         <span>웹</span>
