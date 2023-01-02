@@ -1,9 +1,9 @@
-import Root from "./routes";
-import Nav from "./container/Nav";
+import Root from './routes';
+import Nav from './container/Nav';
 
 function App() {
   return (
-    <div className="w-screen h-full bg-neutral-100">
+    <div className="w-full min-h-screen bg-neutral-100">
       <Nav />
       <Root />
     </div>

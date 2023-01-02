@@ -22,7 +22,7 @@ const BlogList = () => {
   }, []);
 
   return (
-    <div className="flex flex-col container mx-auto w-2/5 py-10 justify-center">
+    <div className="flex flex-col container mx-auto w-full px-6 md:w-2/5 py-10 justify-center">
       <div className="text-3xl font-bold mb-8 text-blue-600">BlogList</div>
       <div className="flex mb-8">
         <div className="w-16 h-16 rounded-full bg-slate-400 mr-6 overflow-hidden">
@@ -35,6 +35,7 @@ const BlogList = () => {
       </div>
       {list?.map(({ title, content, id }) => (
         <ListCard
+          key={id}
           title={title}
           content={content.replace(/(<([^>]+)>)/gi, ' ')}
           id={id}

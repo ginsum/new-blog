@@ -16,10 +16,12 @@ const ListCard = ({
     <div className="my-10 cursor-pointer" onClick={() => navigate(id)}>
       <div className="text-2xl font-bold mb-4 text-zinc-800">{title}</div>
       <div
+        className="mb-6"
         dangerouslySetInnerHTML={{
           __html: contentSlice,
         }}
       />
+      <hr />
       {/* <div className="text-zinc-600">{content}</div> */}
     </div>
   );

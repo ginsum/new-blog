@@ -17,7 +17,7 @@ const BlogList = () => {
   }, []);
 
   return (
-    <div className="flex flex-col container mx-auto px-48 py-8 h-screen">
+    <div className="flex flex-col container mx-auto px-6  md:px-48 py-8 h-screen">
       <div className="flex self-end mb-4 text-sm">
         <Link to="/blog">목록으로</Link>
       </div>
