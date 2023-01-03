@@ -6,6 +6,7 @@ import {
   updateDoc,
   setDoc,
 } from 'firebase/firestore';
+import { getISOformat } from '../util';
 import { BlogData } from '../types/blog';
 import { store } from './index';
 
@@ -40,9 +41,10 @@ export const getBlogPost = async (postId: string) => {
 };
 
 export const postBlogPost = async (data: BlogData) => {
-  const docId = Date.now();
-  data.date = docId.toString();
+  const docId = Date.now().toString();
+
+  data.date = getISOformat(+docId);
   data.userId = 'cAXgkDCbXLavk627CVgccH3HgQx2';
 
-  await setDoc(doc(store, '2022_blog', docId.toString()), data);
+  await setDoc(doc(store, '2022_blog', docId), data);
 };

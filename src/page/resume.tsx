@@ -2,8 +2,8 @@ import { introduction, contact, experience } from '../data/resume';
 
 const Resume = () => {
   return (
-    <div className="flex flex-col container mx-auto px-6 md:px-48 pt-10 pb-28 justify-center">
-      <div className="text-3xl font-bold mb-12 text-blue-600">기술 이력서</div>
+    <div className="flex flex-col container mx-auto w-full md:w-[580px] px-6 pt-10 pb-28 justify-center">
+      <div className="text-3xl font-bold mb-12 text-blue-500">기술 이력서</div>
       <div className="mb-4">
         <div className="text-xl font-bold mb-2">{introduction.title}</div>
         <div className="whitespace-pre-wrap">{introduction.description}</div>
@@ -21,7 +21,7 @@ const Resume = () => {
       <hr />
       <div className="my-8">
         <div className="text-xl font-bold mb-4 text-gray-600">경험</div>
-        <div className="flex flex-col md:flex-row ">
+        <div className="flex flex-col dt:flex-row ">
           <div className="flex flex-col w-72 mb-8">
             <span className="text-xl font-bold mr-2 mb-2">
               {experience.company}
@@ -32,7 +32,7 @@ const Resume = () => {
           <div className="">
             {experience.detail.map(({ title, content }) => (
               <div className="mb-8 md:ml-4">
-                <div className="text-lg font-semibold mb-2 text-blue-600">
+                <div className="text-lg font-semibold mb-2 text-blue-500">
                   {title}
                 </div>
                 <div className="text-base md:ml-4">
