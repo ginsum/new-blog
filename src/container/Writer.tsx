@@ -1,29 +1,36 @@
-import { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 
-import '@toast-ui/editor/dist/toastui-editor.css';
-import { Editor } from '@toast-ui/react-editor';
+import { postBlogPost } from "../firebase/content";
+import { userIdState } from "../recoil/atom";
 
-import { postBlogPost } from '../firebase/content';
+import "@toast-ui/editor/dist/toastui-editor.css";
+import { Editor } from "@toast-ui/react-editor";
 
 const Writer = () => {
-  const [title, setTitle] = useState<string>('');
+  const [title, setTitle] = useState<string>("");
+  const userId = useRecoilValue(userIdState);
 
   const editorRef = useRef<any>();
   const navigate = useNavigate();
 
   const onClickButton = async () => {
-    const editorInstance = editorRef.current.getInstance();
+    if (userId) {
+      const editorInstance = editorRef.current.getInstance();
 
-    const data = {
-      title,
-      content: editorInstance.getMarkdown(),
-    };
+      const data = {
+        title,
+        content: editorInstance.getMarkdown(),
+      };
 
-    await postBlogPost(data);
+      await postBlogPost(userId, data);
 
-    alert('제출이 완료되었습니다. 감사합니다.');
-    navigate('/blog');
+      alert("제출이 완료되었습니다. 감사합니다.");
+      navigate("/blog");
+    } else {
+      alert("로그인이 필요합니다");
+    }
   };
 
   return (
@@ -32,7 +39,7 @@ const Writer = () => {
         <input
           type="text"
           value={title}
-          className="w-full h-10 mb-4 border"
+          className="w-full h-10 p-4 mb-4 border"
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
