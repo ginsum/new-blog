@@ -1,21 +1,42 @@
-import { introduction, contact, experience } from '../data/resume';
+import { useEffect, useState } from "react";
+
+import { getInfo } from "../firebase/info";
+
+import { experience as experienceList } from "../data/resume";
+import Loading from "../components/Loading";
 
 const Resume = () => {
-  return (
+  const [resumeData, setResumeData] = useState<Record<string, any> | undefined>(
+    undefined
+  );
+  const { introduction, contact, experience } = resumeData || {};
+
+  const getPost = async () => {
+    const getList = await getInfo();
+    setResumeData(getList);
+  };
+
+  useEffect(() => {
+    getPost();
+  }, []);
+
+  return resumeData ? (
     <div className="flex flex-col container mx-auto w-full md:w-[580px] px-6 pt-10 pb-28 justify-center">
       <div className="text-3xl font-bold mb-12 text-blue-500">기술 이력서</div>
       <div className="mb-4">
-        <div className="text-xl font-bold mb-2">{introduction.title}</div>
-        <div className="whitespace-pre-wrap">{introduction.description}</div>
+        <div className="text-xl font-bold mb-2">{introduction?.title}</div>
+        <div className="whitespace-pre-wrap">{introduction?.description}</div>
       </div>
 
       <div className="mb-8 text-sm">
-        {contact.map(({ label, text }) => (
-          <div className="text-gray-600">
-            <span className="mr-4">{label}</span>
-            <span>{text}</span>
-          </div>
-        ))}
+        <div className="text-gray-600">
+          <span className="mr-4">{contact?.phone[0]}</span>
+          <span>{contact?.phone[1]}</span>
+        </div>
+        <div className="text-gray-600">
+          <span className="mr-4">{contact?.email[0]}</span>
+          <span>{contact?.email[1]}</span>
+        </div>
       </div>
 
       <hr />
@@ -24,13 +45,13 @@ const Resume = () => {
         <div className="flex flex-col dt:flex-row ">
           <div className="flex flex-col w-72 mb-8">
             <span className="text-xl font-bold mr-2 mb-2">
-              {experience.company}
+              {experience?.company}
             </span>
-            <span className="text-gray-600">{experience.description}</span>
-            <span className="text-gray-600">{experience.date}</span>
+            <span className="text-gray-600">{experience?.description}</span>
+            <span className="text-gray-600">{experience?.date}</span>
           </div>
           <div className="">
-            {experience.detail.map(({ title, content }) => (
+            {experienceList.detail.map(({ title, content }) => (
               <div className="mb-8 md:ml-4">
                 <div className="text-lg font-semibold mb-2 text-blue-500">
                   {title}
@@ -44,7 +65,7 @@ const Resume = () => {
             ))}
             <hr />
             <div className="mt-4">
-              {experience.subDetail.map((el: string) => (
+              {experienceList.subDetail.map((el: string) => (
                 <div className="md:ml-4 mb-1">{el}</div>
               ))}
             </div>
@@ -71,6 +92,8 @@ const Resume = () => {
       </div>
       <hr />
     </div>
+  ) : (
+    <Loading />
   );
 };
 
