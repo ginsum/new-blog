@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { useTrail, animated } from "@react-spring/web";
 
 const itemsFront = ["H", "E", "L", "L", "O", "W", "O", "R", "L", "D"];
@@ -63,7 +64,9 @@ const Intro = () => {
           </div>
         ))}
       </div>
-      <div className="h-4">{isOpen ? `Blog ->` : ""}</div>
+      <Link to="/blog">
+        <div className="h-4">{isOpen ? `Blog ->` : ""}</div>
+      </Link>
     </div>
   );
 };
