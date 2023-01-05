@@ -9,7 +9,8 @@ const Resume = () => {
   const [resumeData, setResumeData] = useState<Record<string, any> | undefined>(
     undefined
   );
-  const { introduction, contact, experience } = resumeData || {};
+  const { introduction, contact, experience, skill, education, etc } =
+    resumeData || {};
 
   const getPost = async () => {
     const getList = await getInfo();
@@ -75,20 +76,30 @@ const Resume = () => {
       <hr />
 
       <div className="flex flex-col md:flex-row my-8">
-        <div className="w-72 text-xl font-bold mb-2">교육</div>
-        <div className="flex flex-col">
-          <span>연세 대학교 건축공학과</span>
-          <span>코드스테이츠</span>
+        <div className="w-48 text-xl font-bold mb-2">기술</div>
+        <div className="flex">
+          {skill.stack.map((el: string) => (
+            <span>{el}</span>
+          ))}
+          {skill.tool.map((el: string) => (
+            <span>{el}</span>
+          ))}
         </div>
       </div>
       <hr />
 
       <div className="flex flex-col md:flex-row my-8">
-        <div className="w-72 text-xl font-bold mb-2">기타</div>
+        <div className="w-48 text-xl font-bold mb-2">교육</div>
         <div className="flex flex-col">
-          <span>웹디자이너</span>
-          <span>코드스테이츠</span>
+          <span>{education[0][0]}</span>
+          <span>{education[1][0]}</span>
         </div>
+      </div>
+      <hr />
+
+      <div className="flex flex-col md:flex-row my-8">
+        <div className="w-48 text-xl font-bold mb-2">기타</div>
+        <div className="flex flex-col">{etc[0][0]}</div>
       </div>
       <hr />
     </div>
