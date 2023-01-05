@@ -52,11 +52,11 @@ const Resume = () => {
           </div>
           <div className="">
             {experienceList.detail.map(({ title, content }) => (
-              <div className="mb-8 md:ml-4">
+              <div className="mb-8">
                 <div className="text-lg font-semibold mb-2 text-blue-500">
                   {title}
                 </div>
-                <div className="text-base md:ml-4">
+                <div className="text-base">
                   {content.map((el: string) => (
                     <div className="mb-1 text-gray-700">{el}</div>
                   ))}
@@ -66,7 +66,7 @@ const Resume = () => {
             <hr />
             <div className="mt-4">
               {experienceList.subDetail.map((el: string) => (
-                <div className="md:ml-4 mb-1">{el}</div>
+                <div className="mb-1">{el}</div>
               ))}
             </div>
           </div>

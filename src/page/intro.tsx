@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
-import { useTrail, animated } from '@react-spring/web';
+import { useRef, useState } from "react";
+import { useTrail, animated } from "@react-spring/web";
 
-const items = ['H', 'E', 'L', 'L', 'O', 'W', 'O', 'R', 'L', 'D'];
-const itemsFront = ['🔥', '🔥', 'L', '🔥', '🔥', '🔥', '🔥', 'R', '🔥', '🔥'];
+const itemsFront = ["H", "E", "L", "L", "O", "W", "O", "R", "L", "D"];
+const items = ["무", "엇", "이", "궁", "금", "하", "세", "요", "🔥", "🔥"];
 
 const Intro = () => {
   const [isOpen, setIseOpen] = useState<boolean>(false);
@@ -33,7 +33,7 @@ const Intro = () => {
         {trail.map(({ rotateX }, i) => (
           <div
             key={i}
-            className="flex justify-center items-center w-16 h-16 relative ml-2 mb-2 text-3xl bg-rose-800 text-white"
+            className="flex justify-center items-center w-16 h-16 relative ml-2 mb-2 text-3xl bg-rose-200 text-white"
           >
             <animated.div
               key={items[i]}
@@ -41,8 +41,8 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${val}deg)`
                 ),
-                transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden',
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
               }}
               className="absolute"
             >
@@ -53,8 +53,8 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${180 - val}deg)`
                 ),
-                transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden',
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
               }}
               className="absolute"
             >
@@ -63,7 +63,7 @@ const Intro = () => {
           </div>
         ))}
       </div>
-      <div className="h-4">{isOpen ? `Blog ->` : ''}</div>
+      <div className="h-4">{isOpen ? `Blog ->` : ""}</div>
     </div>
   );
 };
