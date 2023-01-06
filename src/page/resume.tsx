@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { getInfo } from "../firebase/info";
+import { getInfo } from '../firebase/info';
 
-import { experience as experienceList } from "../data/resume";
-import Loading from "../components/Loading";
+import { experience as experienceList } from '../data/resume';
+import Loading from '../components/Loading';
+import Card from '../components/Card';
 
 const Resume = () => {
   const [resumeData, setResumeData] = useState<Record<string, any> | undefined>(
     undefined
   );
+
   const { introduction, contact, experience, skill, education, etc } =
     resumeData || {};
 
@@ -22,86 +24,122 @@ const Resume = () => {
   }, []);
 
   return resumeData ? (
-    <div className="flex flex-col container mx-auto w-full md:w-[580px] px-6 pt-10 pb-28 justify-center">
-      <div className="text-3xl font-bold mb-12 text-blue-500">기술 이력서</div>
-      <div className="mb-4">
-        <div className="text-xl font-bold mb-2">{introduction?.title}</div>
-        <div className="whitespace-pre-wrap">{introduction?.description}</div>
+    <div className="flex flex-col justify-center container mx-auto w-full md:w-[680px] px-6 pt-10 pb-28 tracking-tight ">
+      <div className="text-3xl font-semibold mb-8 text-blue-900">
+        기술 이력서
       </div>
-
-      <div className="mb-8 text-sm">
+      <div className="">
+        <div className="text-xl font-medium mb-1 text-gray-700">
+          {introduction?.title}
+        </div>
+        <div className="whitespace-pre-wrap text-gray-900 font-light ">
+          {introduction?.description}
+        </div>
+      </div>
+      <div className="my-6 text-sm">
         <div className="text-gray-600">
-          <span className="mr-4">{contact?.phone[0]}</span>
+          <span className="mr-4 font-semibold">{contact?.phone[0]}</span>
           <span>{contact?.phone[1]}</span>
         </div>
         <div className="text-gray-600">
-          <span className="mr-4">{contact?.email[0]}</span>
+          <span className="mr-4 font-semibold">{contact?.email[0]}</span>
           <span>{contact?.email[1]}</span>
         </div>
       </div>
-
-      <hr />
-      <div className="my-8">
-        <div className="text-xl font-bold mb-4 text-gray-600">경험</div>
-        <div className="flex flex-col dt:flex-row ">
-          <div className="flex flex-col w-72 mb-8">
-            <span className="text-xl font-bold mr-2 mb-2">
-              {experience?.company}
-            </span>
-            <span className="text-gray-600">{experience?.description}</span>
-            <span className="text-gray-600">{experience?.date}</span>
-          </div>
-          <div className="">
-            {experienceList.detail.map(({ title, content }) => (
-              <div className="mb-8">
-                <div className="text-lg font-semibold mb-2 text-blue-500">
-                  {title}
-                </div>
-                <div className="text-base">
-                  {content.map((el: string) => (
-                    <div className="mb-1 text-gray-700">{el}</div>
-                  ))}
-                </div>
+      <Card>
+        <div className="">
+          <div className="text-xl font-light mb-4 text-blue-600">경험</div>
+          <div className="flex flex-col dt:flex-row ">
+            <div className="flex justify-between mb-8">
+              <div className="flex flex-col">
+                <span className="text-xl font-semibold text-gray-700">
+                  {experience?.company}
+                </span>
+                <span className="text-gray-800 font-light">
+                  {experience?.description}
+                </span>
               </div>
-            ))}
-            <hr />
-            <div className="mt-4">
-              {experienceList.subDetail.map((el: string) => (
-                <div className="mb-1">{el}</div>
+
+              <span className="text-gray-600 font-light">
+                {experience?.date}
+              </span>
+            </div>
+            <div className="">
+              {experienceList.detail.map(({ title, content }) => (
+                <div className="mb-12">
+                  <div className="text-lg font-medium mb-1 text-blue-800">
+                    {title}
+                  </div>
+                  <hr />
+                  <div className="text-base mt-3 ml-3">
+                    {content.map((el: string, index: number) => (
+                      <div
+                        className={`${index === 1 ? 'mb-3' : 'mb-0.5'} ${
+                          index < 2
+                            ? 'font-normal text-gray-600'
+                            : 'font-light text-gray-800'
+                        }`}
+                      >
+                        {el}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <hr />
+              <div className="mt-4 text-gray-700 font-normal">
+                {experienceList.subDetail.map((el: string) => (
+                  <div className="mb-1">{el}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Card>
+      <Card>
+        <div className="flex flex-col md:flex-row">
+          <div className="w-20 text-xl font-light mb-2 text-blue-700">기술</div>
+          <div className="flex flex-col">
+            <div className="flex mb-2">
+              {skill?.stack.map((el: string) => (
+                <span className="mr-1 px-2 py-0.5 bg-gray-400 rounded-lg text-white font-light">
+                  {el}
+                </span>
+              ))}
+            </div>
+            <div className="flex">
+              {skill?.tool.map((el: string) => (
+                <span className="mr-1 px-2 py-0.5 bg-slate-400 rounded-lg text-white font-light">
+                  {el}
+                </span>
               ))}
             </div>
           </div>
         </div>
-      </div>
-      <hr />
-
-      <div className="flex flex-col md:flex-row my-8">
-        <div className="w-48 text-xl font-bold mb-2">기술</div>
-        <div className="flex">
-          {skill.stack.map((el: string) => (
-            <span>{el}</span>
-          ))}
-          {skill.tool.map((el: string) => (
-            <span>{el}</span>
-          ))}
+      </Card>
+      <Card>
+        <div className="flex flex-col md:flex-row">
+          <div className="w-20 text-xl font-light mb-2 text-blue-700">교육</div>
+          {education && (
+            <div className="flex flex-col text-gray-700">
+              <div>
+                <span className="mr-2">{education[1][0]}</span>
+                <span>{education[1][1]}</span>
+              </div>
+              <div>
+                <span className="mr-2">{education[2][0]}</span>
+                <span>{education[2][1]}</span>
+              </div>
+            </div>
+          )}
         </div>
-      </div>
-      <hr />
-
-      <div className="flex flex-col md:flex-row my-8">
-        <div className="w-48 text-xl font-bold mb-2">교육</div>
-        <div className="flex flex-col">
-          <span>{education[0][0]}</span>
-          <span>{education[1][0]}</span>
+      </Card>
+      <Card>
+        <div className="flex flex-col md:flex-row">
+          <div className="w-20 text-xl font-light mb-2 text-blue-700">기타</div>
+          <div className="flex flex-col text-gray-700">{etc && etc[1][0]}</div>
         </div>
-      </div>
-      <hr />
-
-      <div className="flex flex-col md:flex-row my-8">
-        <div className="w-48 text-xl font-bold mb-2">기타</div>
-        <div className="flex flex-col">{etc[0][0]}</div>
-      </div>
-      <hr />
+      </Card>
     </div>
   ) : (
     <Loading />

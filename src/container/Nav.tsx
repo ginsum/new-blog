@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 
-import { userIdState } from "../recoil/atom";
+import { userIdState } from '../recoil/atom';
 
 const Nav = () => {
   const userId = useRecoilValue(userIdState);
 
   return (
     <div className="w-full h-12">
-      <div className="flex container mx-auto w-full md:w-[580px] px-6 py-3 justify-end items-center text-slate-400 text-sm">
+      <div className="flex container mx-auto w-full md:w-[640px] px-6 py-3 justify-end items-center text-slate-400 text-sm">
         <Link to="/">
           <div className="mr-3">Home</div>
         </Link>
