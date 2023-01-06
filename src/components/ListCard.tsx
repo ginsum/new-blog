@@ -12,21 +12,23 @@ const ListCard = ({
   date: string;
 }) => {
   let navigate = useNavigate();
-  const contentSlice = content.substring(0, 100);
+  const contentSlice = `${content.substring(0, 90)}...`;
 
   return (
-    <div className="my-10 cursor-pointer" onClick={() => navigate(id)}>
-      <div className="flex justify-between">
-        <div className="text-2xl font-bold mb-4 text-slate-800">{title}</div>
-        <div className="text-sm text-slate-400">{date}</div>
+    <div
+      className="p-8 my-10 cursor-pointer border border-gray-200 rounded-2xl shadow"
+      onClick={() => navigate(id)}
+    >
+      <div className="flex justify-between items-end pb-2 border-b border-slate-300">
+        <div className="text-xl font-bold text-slate-800">{title}</div>
+        <div className="text-sm text-slate-600">{date}</div>
       </div>
       <div
-        className="mb-6"
+        className="mt-6 text-sm text-slate-500"
         dangerouslySetInnerHTML={{
           __html: contentSlice,
         }}
       />
-      <hr />
       {/* <div className="text-slate-600">{content}</div> */}
     </div>
   );
