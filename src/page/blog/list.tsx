@@ -30,7 +30,7 @@ const BlogList = () => {
           {/* <div>github</div> */}
         </div>
       </div>
-      <hr />
+      <hr className="mb-4" />
 
       {list?.map(({ title, content, id, date }, index) => (
         <ListCard

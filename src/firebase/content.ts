@@ -5,12 +5,12 @@ import {
   getDocs,
   updateDoc,
   setDoc,
-} from "firebase/firestore";
-import { getISOformat } from "../util";
-import { BlogData } from "../types/blog";
-import { store } from "./index";
+} from 'firebase/firestore';
+import { getISOformat } from '../util';
+import { BlogData } from '../types/blog';
+import { store } from './index';
 
-const blogContent = collection(store, "2022_blog");
+const blogContent = collection(store, '2022_blog');
 
 export const getBlogList = async () => {
   try {
@@ -24,7 +24,7 @@ export const getBlogList = async () => {
         date: doc.data().date,
       });
     });
-    return data;
+    return data.reverse();
   } catch (e) {
     console.error(e);
   }
@@ -32,7 +32,7 @@ export const getBlogList = async () => {
 
 export const getBlogPost = async (postId: string) => {
   try {
-    const postData = await getDoc(doc(store, "2022_blog", postId));
+    const postData = await getDoc(doc(store, '2022_blog', postId));
 
     return postData.data();
   } catch (e) {
@@ -46,5 +46,5 @@ export const postBlogPost = async (id: string, data: BlogData) => {
   data.date = getISOformat(+docId);
   data.userId = id;
 
-  await setDoc(doc(store, "2022_blog", docId), data);
+  await setDoc(doc(store, '2022_blog', docId), data);
 };

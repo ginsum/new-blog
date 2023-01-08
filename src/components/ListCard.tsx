@@ -16,7 +16,7 @@ const ListCard = ({
 
   return (
     <div
-      className="p-8 my-10 cursor-pointer border border-gray-200 rounded-2xl shadow"
+      className="p-8 my-2 cursor-pointer border border-gray-200 rounded-2xl shadow"
       onClick={() => navigate(id)}
     >
       <div className="flex justify-between items-end pb-2 border-b border-slate-300">
