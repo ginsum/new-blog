@@ -1,40 +1,52 @@
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { useTrail, animated } from "@react-spring/web";
+import { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useTrail, animated } from '@react-spring/web';
 
-const itemsFront = ["H", "E", "L", "L", "O", "W", "O", "R", "L", "D"];
-const items = ["무", "엇", "이", "궁", "금", "하", "세", "요", "🔥", "🔥"];
+const itemsFront = [
+  '<',
+  'H',
+  'E',
+  'L',
+  'L',
+  'O',
+  'W',
+  'O',
+  'R',
+  'L',
+  'D',
+  '/>',
+];
+const items = ['C', 'L', 'I', 'C', 'K', '', '', '', '', 'M', 'E', '->'];
 
 const Intro = () => {
-  const [isOpen, setIseOpen] = useState<boolean>(false);
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,
   }));
 
+  const navigate = useNavigate();
   const isFlipped = useRef(false);
 
   const handleClick = () => {
     if (isFlipped.current) {
-      api.start({
-        rotateX: 0,
-      });
-      isFlipped.current = false;
+      navigate('/blog');
     } else {
       api.start({
         rotateX: 180,
       });
       isFlipped.current = true;
     }
-    setIseOpen(!isOpen);
   };
 
   return (
     <div className="flex flex-col w-full h-screen justify-center items-center">
-      <div className="flex flex-wrap w-96" onClick={handleClick}>
+      <div
+        className="flex flex-wrap justify-center w-full md:w-[500px] mb-20"
+        onClick={handleClick}
+      >
         {trail.map(({ rotateX }, i) => (
           <div
             key={i}
-            className="flex justify-center items-center w-16 h-16 relative ml-2 mb-2 text-3xl bg-rose-200 text-white"
+            className="flex justify-center items-center w-14 h-14 md:w-16 md:h-16 relative ml-2 mb-2 text-3xl bg-blue-200 text-white rounded-full"
           >
             <animated.div
               key={items[i]}
@@ -42,10 +54,10 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${val}deg)`
                 ),
-                transformStyle: "preserve-3d",
-                backfaceVisibility: "hidden",
+                transformStyle: 'preserve-3d',
+                backfaceVisibility: 'hidden',
               }}
-              className="absolute"
+              className="absolute cursor-pointer"
             >
               {itemsFront[i]}
             </animated.div>
@@ -54,19 +66,16 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${180 - val}deg)`
                 ),
-                transformStyle: "preserve-3d",
-                backfaceVisibility: "hidden",
+                transformStyle: 'preserve-3d',
+                backfaceVisibility: 'hidden',
               }}
-              className="absolute"
+              className="absolute cursor-pointer"
             >
               {items[i]}
             </animated.div>
           </div>
         ))}
       </div>
-      <Link to="/blog">
-        <div className="h-4">{isOpen ? `Blog ->` : ""}</div>
-      </Link>
     </div>
   );
 };
