@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import { getInfo } from '../firebase/info';
 
-import { experience as experienceList } from '../data/resume';
 import Loading from '../components/Loading';
 import Card from '../components/Card';
 
@@ -24,7 +23,7 @@ const Resume = () => {
   }, []);
 
   return resumeData ? (
-    <div className="flex flex-col justify-center container mx-auto w-full md:w-[680px] px-6 pt-10 pb-28 tracking-tight ">
+    <div className="flex flex-col justify-center container mx-auto w-full md:w-[680px] px-5 md:px-6 pt-10 pb-28 tracking-tight ">
       <div className="text-3xl font-semibold mb-8 text-blue-900">
         기술 이력서
       </div>
@@ -50,7 +49,7 @@ const Resume = () => {
         <div className="">
           <div className="text-xl font-light mb-4 text-blue-600">경험</div>
           <div className="flex flex-col dt:flex-row ">
-            <div className="flex justify-between mb-8">
+            <div className="flex justify-between mb-4 md:mb-8">
               <div className="flex flex-col">
                 <span className="text-xl font-semibold text-gray-700">
                   {experience?.company}
@@ -65,14 +64,14 @@ const Resume = () => {
               </span>
             </div>
             <div className="">
-              {experienceList.detail.map(({ title, content }) => (
-                <div className="mb-12">
+              {experience?.detail.map((detail: any) => (
+                <div className="mb-8 md:mb-12">
                   <div className="text-lg font-medium mb-1 text-blue-800">
-                    {title}
+                    {detail.title}
                   </div>
                   <hr />
                   <div className="text-base mt-3 ml-3">
-                    {content.map((el: string, index: number) => (
+                    {detail.content.map((el: string, index: number) => (
                       <div
                         className={`${index === 1 ? 'mb-3' : 'mb-0.5'} ${
                           index < 2
@@ -88,7 +87,7 @@ const Resume = () => {
               ))}
               <hr />
               <div className="mt-4 text-gray-700 font-normal">
-                {experienceList.subDetail.map((el: string) => (
+                {experience?.subDetail.map((el: string) => (
                   <div className="mb-1">{el}</div>
                 ))}
               </div>
@@ -100,16 +99,16 @@ const Resume = () => {
         <div className="flex flex-col md:flex-row">
           <div className="w-20 text-xl font-light mb-2 text-blue-700">기술</div>
           <div className="flex flex-col">
-            <div className="flex mb-2">
+            <div className="flex flex-wrap mb-2">
               {skill?.stack.map((el: string) => (
                 <span className="mr-1 px-2 py-0.5 bg-gray-400 rounded-lg text-white font-light">
                   {el}
                 </span>
               ))}
             </div>
-            <div className="flex">
+            <div className="flex flex-wrap">
               {skill?.tool.map((el: string) => (
-                <span className="mr-1 px-2 py-0.5 bg-slate-400 rounded-lg text-white font-light">
+                <span className="mb-2 mr-1 px-2 py-0.5 bg-slate-400 rounded-lg text-white font-light">
                   {el}
                 </span>
               ))}

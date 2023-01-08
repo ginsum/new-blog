@@ -20,11 +20,11 @@ const ListCard = ({
       onClick={() => navigate(id)}
     >
       <div className="flex justify-between items-end pb-2 border-b border-slate-300">
-        <div className="text-xl font-bold text-slate-800">{title}</div>
-        <div className="text-sm text-slate-600">{date}</div>
+        <div className="text-xl font-bold text-blue-800">{title}</div>
+        <div className="text-sm text-gray-600">{date}</div>
       </div>
       <div
-        className="mt-6 text-sm text-slate-500"
+        className="mt-6 text-sm text-gray-500"
         dangerouslySetInnerHTML={{
           __html: contentSlice,
         }}
