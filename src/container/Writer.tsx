@@ -1,8 +1,9 @@
-import { useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
-import { postBlogPost } from "../firebase/content";
+import { getBlogPost, postBlogPost, updateBlogPost } from "../firebase/content";
+
 import { userIdState } from "../recoil/atom";
 
 import "@toast-ui/editor/dist/toastui-editor.css";
@@ -12,8 +13,22 @@ const Writer = () => {
   const [title, setTitle] = useState<string>("");
   const userId = useRecoilValue(userIdState);
 
+  const { id = "" } = useParams();
+
   const editorRef = useRef<any>();
   const navigate = useNavigate();
+
+  const getPost = async () => {
+    const postData = await getBlogPost(id);
+    editorRef.current?.getInstance().setMarkdown(postData?.content);
+    setTitle(postData?.title);
+  };
+
+  useEffect(() => {
+    if (id) {
+      getPost();
+    }
+  }, []);
 
   const onClickButton = async () => {
     if (userId) {
@@ -24,7 +39,11 @@ const Writer = () => {
         content: editorInstance.getMarkdown(),
       };
 
-      await postBlogPost(userId, data);
+      if (id) {
+        await updateBlogPost(id, data);
+      } else {
+        await postBlogPost(userId, data);
+      }
 
       alert("제출이 완료되었습니다. 감사합니다.");
       navigate("/blog");
