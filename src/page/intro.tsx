@@ -1,22 +1,22 @@
-import { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useTrail, animated } from '@react-spring/web';
+import { useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useTrail, animated } from "@react-spring/web";
 
 const itemsFront = [
-  '<',
-  'H',
-  'E',
-  'L',
-  'L',
-  'O',
-  'W',
-  'O',
-  'R',
-  'L',
-  'D',
-  '/>',
+  "<",
+  "H",
+  "E",
+  "L",
+  "L",
+  "O",
+  "W",
+  "O",
+  "R",
+  "L",
+  "D",
+  "/>",
 ];
-const items = ['C', 'L', 'I', 'C', 'K', '', '', '', '', 'M', 'E', '->'];
+const items = ["C", "L", "I", "C", "K", "", "", "", "", "M", "E", "->"];
 
 const Intro = () => {
   const [trail, api] = useTrail(items.length, () => ({
@@ -28,7 +28,7 @@ const Intro = () => {
 
   const handleClick = () => {
     if (isFlipped.current) {
-      navigate('/blog');
+      navigate("/blog");
     } else {
       api.start({
         rotateX: 180,
@@ -46,7 +46,7 @@ const Intro = () => {
         {trail.map(({ rotateX }, i) => (
           <div
             key={i}
-            className="flex justify-center items-center w-14 h-14 md:w-16 md:h-16 relative ml-2 mb-2 text-3xl bg-blue-200 text-white rounded-full"
+            className="flex justify-center items-center w-12 h-12 md:w-16 md:h-16 relative ml-0.5 md:ml-2 mb-2 text-3xl bg-blue-200 text-white rounded-full"
           >
             <animated.div
               key={items[i]}
@@ -54,8 +54,8 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${val}deg)`
                 ),
-                transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden',
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
               }}
               className="absolute cursor-pointer"
             >
@@ -66,8 +66,8 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${180 - val}deg)`
                 ),
-                transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden',
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
               }}
               className="absolute cursor-pointer"
             >

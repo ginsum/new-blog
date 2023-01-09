@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { getInfo } from '../firebase/info';
+import { getInfo } from "../firebase/info";
 
-import Loading from '../components/Loading';
-import Card from '../components/Card';
+import Loading from "../components/Loading";
+import Card from "../components/Card";
 
 const Resume = () => {
   const [resumeData, setResumeData] = useState<Record<string, any> | undefined>(
@@ -37,12 +37,14 @@ const Resume = () => {
       </div>
       <div className="my-6 text-sm">
         <div className="text-gray-600">
-          <span className="mr-4 font-semibold">{contact?.phone[0]}</span>
-          <span>{contact?.phone[1]}</span>
+          <span className="mr-4 font-semibold">github</span>
+          <a href={contact?.github} target="_blank">
+            <span>{contact?.github}</span>
+          </a>
         </div>
         <div className="text-gray-600">
-          <span className="mr-4 font-semibold">{contact?.email[0]}</span>
-          <span>{contact?.email[1]}</span>
+          <span className="mr-4 font-semibold">email</span>
+          <span>{contact?.email}</span>
         </div>
       </div>
       <Card>
@@ -73,10 +75,10 @@ const Resume = () => {
                   <div className="text-base mt-3 ml-3">
                     {detail.content.map((el: string, index: number) => (
                       <div
-                        className={`${index === 1 ? 'mb-3' : 'mb-0.5'} ${
+                        className={`${index === 1 ? "mb-3" : "mb-0.5"} ${
                           index < 2
-                            ? 'font-normal text-gray-600'
-                            : 'font-light text-gray-800'
+                            ? "font-normal text-gray-600"
+                            : "font-light text-gray-800"
                         }`}
                       >
                         {el}
