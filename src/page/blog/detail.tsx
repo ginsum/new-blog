@@ -29,7 +29,7 @@ const BlogDetail = () => {
       </div>
       <div className="flex justify-between items-end mb-3 px-1">
         <div className="text-xl font-bold text-blue-500">{post?.title}</div>
-        <div className="text-sm text-slate-400">{post?.date}</div>
+        <div className="text-sm text-zinc-400">{post?.date}</div>
       </div>
       <hr />
       <div className="text-lg p-3">

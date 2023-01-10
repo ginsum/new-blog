@@ -15,6 +15,7 @@ const Root = () => {
       <Route path="resume" element={<Resume />} />
       <Route path="blog" element={<BlogList />} />
       <Route path="blog/:id" element={<BlogDetail />} />
+      <Route path="write" element={<Write />} />
       <Route path="write/:id" element={<Write />} />
       <Route path="login" element={<Login />} />
     </Routes>

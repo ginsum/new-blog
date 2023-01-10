@@ -28,21 +28,21 @@ const Resume = () => {
         기술 이력서
       </div>
       <div className="">
-        <div className="text-xl font-medium mb-1 text-gray-700">
+        <div className="text-xl font-medium mb-1 text-zinc-700">
           {introduction?.title}
         </div>
-        <div className="whitespace-pre-wrap text-gray-900 font-light ">
+        <div className="whitespace-pre-wrap text-zinc-900 font-light ">
           {introduction?.description}
         </div>
       </div>
       <div className="my-6 text-sm">
-        <div className="text-gray-600">
+        <div className="text-zinc-600">
           <span className="mr-4 font-semibold">github</span>
           <a href={contact?.github} target="_blank">
             <span>{contact?.github}</span>
           </a>
         </div>
-        <div className="text-gray-600">
+        <div className="text-zinc-600">
           <span className="mr-4 font-semibold">email</span>
           <span>{contact?.email}</span>
         </div>
@@ -53,15 +53,15 @@ const Resume = () => {
           <div className="flex flex-col dt:flex-row ">
             <div className="flex justify-between mb-4 md:mb-8">
               <div className="flex flex-col">
-                <span className="text-xl font-semibold text-gray-700">
+                <span className="text-xl font-semibold text-zinc-700">
                   {experience?.company}
                 </span>
-                <span className="text-gray-800 font-light">
+                <span className="text-zinc-800 font-light">
                   {experience?.description}
                 </span>
               </div>
 
-              <span className="text-gray-600 font-light">
+              <span className="text-zinc-600 font-light">
                 {experience?.date}
               </span>
             </div>
@@ -77,8 +77,8 @@ const Resume = () => {
                       <div
                         className={`${index === 1 ? "mb-3" : "mb-0.5"} ${
                           index < 2
-                            ? "font-normal text-gray-600"
-                            : "font-light text-gray-800"
+                            ? "font-normal text-zinc-600"
+                            : "font-light text-zinc-800"
                         }`}
                       >
                         {el}
@@ -88,7 +88,7 @@ const Resume = () => {
                 </div>
               ))}
               <hr />
-              <div className="mt-4 text-gray-700 font-normal">
+              <div className="mt-4 text-zinc-700 font-normal">
                 {experience?.subDetail.map((el: string) => (
                   <div className="mb-1">{el}</div>
                 ))}
@@ -103,14 +103,14 @@ const Resume = () => {
           <div className="flex flex-col">
             <div className="flex flex-wrap mb-2">
               {skill?.stack.map((el: string) => (
-                <span className="mr-1 px-2 py-0.5 bg-gray-400 rounded-lg text-white font-light">
+                <span className="mr-1 px-2 py-0.5 bg-zinc-400 rounded-lg text-white font-light">
                   {el}
                 </span>
               ))}
             </div>
             <div className="flex flex-wrap">
               {skill?.tool.map((el: string) => (
-                <span className="mb-2 mr-1 px-2 py-0.5 bg-slate-400 rounded-lg text-white font-light">
+                <span className="mb-2 mr-1 px-2 py-0.5 bg-zinc-400 rounded-lg text-white font-light">
                   {el}
                 </span>
               ))}
@@ -122,7 +122,7 @@ const Resume = () => {
         <div className="flex flex-col md:flex-row">
           <div className="w-20 text-xl font-light mb-2 text-blue-700">교육</div>
           {education && (
-            <div className="flex flex-col text-gray-700">
+            <div className="flex flex-col text-zinc-700">
               <div>
                 <span className="mr-2">{education[1][0]}</span>
                 <span>{education[1][1]}</span>
@@ -138,7 +138,7 @@ const Resume = () => {
       <Card>
         <div className="flex flex-col md:flex-row">
           <div className="w-20 text-xl font-light mb-2 text-blue-700">기타</div>
-          <div className="flex flex-col text-gray-700">{etc && etc[1][0]}</div>
+          <div className="flex flex-col text-zinc-700">{etc && etc[1][0]}</div>
         </div>
       </Card>
     </div>
