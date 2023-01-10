@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { getInfo } from "../firebase/info";
+import { getInfo } from '../firebase/info';
 
-import Loading from "../components/Loading";
-import Card from "../components/Card";
+import Loading from '../components/Loading';
+import Card from '../components/Card';
 
 const Resume = () => {
   const [resumeData, setResumeData] = useState<Record<string, any> | undefined>(
@@ -23,7 +23,7 @@ const Resume = () => {
   }, []);
 
   return resumeData ? (
-    <div className="flex flex-col justify-center container mx-auto w-full md:w-[680px] px-5 md:px-6 pt-10 pb-28 tracking-tight ">
+    <div className="flex flex-col justify-center container mx-auto w-full md:w-[640px] px-5 md:px-6 pt-10 pb-28 tracking-tight ">
       <div className="text-3xl font-semibold mb-8 text-blue-900">
         기술 이력서
       </div>
@@ -38,7 +38,7 @@ const Resume = () => {
       <div className="my-6 text-sm">
         <div className="text-zinc-600">
           <span className="mr-4 font-semibold">github</span>
-          <a href={contact?.github} target="_blank">
+          <a href={contact?.github} target="_blank" rel="noreferrer">
             <span>{contact?.github}</span>
           </a>
         </div>
@@ -75,10 +75,10 @@ const Resume = () => {
                   <div className="text-base mt-3 ml-3">
                     {detail.content.map((el: string, index: number) => (
                       <div
-                        className={`${index === 1 ? "mb-3" : "mb-0.5"} ${
+                        className={`${index === 1 ? 'mb-3' : 'mb-0.5'} ${
                           index < 2
-                            ? "font-normal text-zinc-600"
-                            : "font-light text-zinc-800"
+                            ? 'font-normal text-zinc-600'
+                            : 'font-light text-zinc-800'
                         }`}
                       >
                         {el}
