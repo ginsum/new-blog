@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { getBlogList } from '../../firebase/content';
-import ListCard from '../../components/ListCard';
-import Loading from '../../components/Loading';
+import { getBlogList } from "../../firebase/content";
+import ListCard from "../../components/ListCard";
+import Loading from "../../components/Loading";
 
 const BlogList = () => {
   const [list, setList] = useState<Record<string, any>[] | undefined>(
@@ -19,7 +19,7 @@ const BlogList = () => {
   }, []);
 
   return list ? (
-    <div className="flex flex-col mx-auto w-full md:w-[640px] px-6  py-10 justify-center tracking-tight">
+    <div className="flex flex-col mx-auto w-full md:w-[640px] px-6 py-10 justify-center tracking-tight">
       <div className="text-3xl font-bold mb-8 text-blue-900">BlogList</div>
       <div className="flex mb-8">
         <div className="w-14 h-14 rounded-full bg-zinc-400 mr-6 overflow-hidden">
@@ -34,12 +34,13 @@ const BlogList = () => {
       </div>
       <hr className="w-80 md:w-[640px] mb-4" />
 
-      {list?.map(({ title, content, id, date }, index) => (
+      {list?.map(({ title, category, content, id, date }, index) => (
         <ListCard
           key={`${id}_${index}`}
           title={title}
+          category={category}
           date={date}
-          content={content.replace(/(<([^>]+)>)/gi, ' ')}
+          content={content.replace(/(<([^>]+)>)/gi, " ")}
           id={id}
         />
       ))}

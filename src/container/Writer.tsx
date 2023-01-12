@@ -11,6 +11,7 @@ import { Editor } from "@toast-ui/react-editor";
 
 const Writer = () => {
   const [title, setTitle] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
   const userId = useRecoilValue(userIdState);
 
   const { id = "" } = useParams();
@@ -36,6 +37,7 @@ const Writer = () => {
 
       const data = {
         title,
+        category,
         content: editorInstance.getMarkdown(),
       };
 
@@ -60,6 +62,12 @@ const Writer = () => {
           value={title}
           className="w-full h-10 p-4 mb-4 border"
           onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          value={category}
+          className="w-full h-10 p-4 mb-4 border"
+          onChange={(e) => setCategory(e.target.value)}
         />
       </div>
       <div className="w-full">

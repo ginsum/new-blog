@@ -19,6 +19,7 @@ export const getBlogList = async () => {
     querySnapshot.forEach((doc) => {
       data.push({
         id: doc.id,
+        category: doc.data().category,
         title: doc.data().title,
         content: doc.data().content,
         date: doc.data().date,
