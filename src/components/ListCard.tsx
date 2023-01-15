@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const ListCard = ({
   title,
@@ -21,8 +21,8 @@ const ListCard = ({
       onClick={() => navigate(id)}
     >
       <div className="flex flex-col md:flex-row justify-between pb-2 border-b border-zinc-300">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="flex items-center h-6 px-2 mr-2 text-xs bg-blue-600 text-white rounded-xl">
+        <div className="flex flex-col md:flex-row items-start md:items-center">
+          <div className="flex items-center h-6 px-2 mr-2 mb-1 md:mb-0 text-xs bg-blue-600 text-white rounded-xl">
             {category}
           </div>
           <div className="text-xl font-bold text-blue-800">{title}</div>
@@ -33,8 +33,8 @@ const ListCard = ({
       <div
         className="w-64 md:w-[576px] h-14 mt-4 text-sm text-zinc-500 overflow-hidden"
         style={{
-          display: "-webkit-box",
-          WebkitBoxOrient: "vertical",
+          display: '-webkit-box',
+          WebkitBoxOrient: 'vertical',
           WebkitLineClamp: 4,
         }}
       >
