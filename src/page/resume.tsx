@@ -24,26 +24,26 @@ const Resume = () => {
 
   return resumeData ? (
     <div className="flex flex-col justify-center container mx-auto w-full md:w-[640px] px-5 md:px-6 pt-10 pb-28 tracking-tight ">
-      <div className="text-3xl font-semibold mb-8 text-blue-900">
+      <div className="text-2xl font-semibold mb-4 text-blue-900">
         기술 이력서
       </div>
       <div className="">
-        <div className="text-xl font-medium mb-1 text-zinc-700">
+        <div className="text-xl font-medium mb-1 text-zinc-800">
           {introduction?.title}
         </div>
-        <div className="whitespace-pre-wrap text-zinc-900 font-light ">
+        <div className="whitespace-pre-wrap text-zinc-700 font-light ">
           {introduction?.description}
         </div>
       </div>
       <div className="my-6 text-sm">
         <div className="text-zinc-600">
-          <span className="mr-4 font-semibold">github</span>
+          <span className="mr-4 font-semibold text-blue-400">Github</span>
           <a href={contact?.github} target="_blank" rel="noreferrer">
             <span>{contact?.github}</span>
           </a>
         </div>
         <div className="text-zinc-600">
-          <span className="mr-4 font-semibold">email</span>
+          <span className="mr-6 font-semibold text-blue-400">Email</span>
           <span>{contact?.email}</span>
         </div>
       </div>
@@ -103,14 +103,14 @@ const Resume = () => {
           <div className="flex flex-col">
             <div className="flex flex-wrap mb-2">
               {skill?.stack.map((el: string) => (
-                <span className="mr-1 px-2 py-0.5 bg-zinc-400 rounded-lg text-white font-light">
+                <span className="mr-1 px-3 py-0 bg-zinc-400 rounded-xl text-white font-light">
                   {el}
                 </span>
               ))}
             </div>
             <div className="flex flex-wrap">
               {skill?.tool.map((el: string) => (
-                <span className="mb-2 mr-1 px-2 py-0.5 bg-zinc-400 rounded-lg text-white font-light">
+                <span className="mb-2 mr-1 px-3 py-0 bg-slate-400 rounded-xl text-white font-light">
                   {el}
                 </span>
               ))}

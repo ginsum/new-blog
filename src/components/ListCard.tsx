@@ -22,13 +22,13 @@ const ListCard = ({
     >
       <div className="flex flex-col md:flex-row justify-between pb-2 border-b border-zinc-300">
         <div className="flex flex-col md:flex-row items-start md:items-center">
-          <div className="flex items-center h-6 px-2 mr-2 mb-1 md:mb-0 text-xs bg-blue-600 text-white rounded-xl">
+          <div className="flex items-center h-6 px-2.5 mr-2.5 mb-1 md:mb-0 text-xs bg-blue-400 text-white rounded-xl">
             {category}
           </div>
-          <div className="text-xl font-bold text-blue-800">{title}</div>
+          <div className="text-lg font-bold text-blue-900">{title}</div>
         </div>
 
-        <div className="text-sm text-zinc-600 self-end ">{date}</div>
+        <div className="text-sm text-zinc-400 font-medium self-end">{date}</div>
       </div>
       <div
         className="w-64 md:w-[576px] h-14 mt-4 text-sm text-zinc-500 overflow-hidden"
