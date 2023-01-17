@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: Gothic A1, system-ui, sans-serif;
+  }
+}
+
 .toastui-editor-contents {
   color: #3f3f46;
 }
@@ -20,4 +26,8 @@
 
 .toastui-editor-contents ul {
   margin-bottom: 20px !important;
+}
+
+.toastui-editor-contents ul > li:before {
+  margin-top: 9px !important;
 }
