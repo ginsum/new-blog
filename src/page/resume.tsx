@@ -24,9 +24,7 @@ const Resume = () => {
 
   return resumeData ? (
     <div className="flex flex-col justify-center container mx-auto w-full md:w-[640px] px-5 md:px-6 pt-10 pb-28 tracking-tight ">
-      <div className="text-2xl font-semibold mb-4 text-blue-900">
-        기술 이력서
-      </div>
+      <div className="text-2xl font-bold mb-4 text-blue-900">About</div>
       <div className="">
         <div className="text-xl font-medium mb-1 text-zinc-800">
           {introduction?.title}
@@ -67,7 +65,7 @@ const Resume = () => {
             </div>
             <div className="">
               {experience?.detail.map((detail: any) => (
-                <div className="mb-8 md:mb-12">
+                <div key={detail.title} className="mb-8 md:mb-12">
                   <div className="text-lg font-medium mb-1 text-blue-800">
                     {detail.title}
                   </div>
@@ -75,6 +73,7 @@ const Resume = () => {
                   <div className="text-base mt-3 ml-3">
                     {detail.content.map((el: string, index: number) => (
                       <div
+                        key={el}
                         className={`${index === 1 ? 'mb-3' : 'mb-0.5'} ${
                           index < 2
                             ? 'font-normal text-zinc-600'
@@ -90,7 +89,9 @@ const Resume = () => {
               <hr />
               <div className="mt-4 text-zinc-700 font-normal">
                 {experience?.subDetail.map((el: string) => (
-                  <div className="mb-1">{el}</div>
+                  <div key={el} className="mb-1">
+                    {el}
+                  </div>
                 ))}
               </div>
             </div>
@@ -103,14 +104,20 @@ const Resume = () => {
           <div className="flex flex-col">
             <div className="flex flex-wrap mb-2">
               {skill?.stack.map((el: string) => (
-                <span className="mr-1 px-3 py-0 bg-zinc-400 rounded-xl text-white font-light">
+                <span
+                  key={el}
+                  className="mr-1 px-3 py-0 bg-zinc-400 rounded-xl text-white font-light"
+                >
                   {el}
                 </span>
               ))}
             </div>
             <div className="flex flex-wrap">
               {skill?.tool.map((el: string) => (
-                <span className="mb-2 mr-1 px-3 py-0 bg-slate-400 rounded-xl text-white font-light">
+                <span
+                  key={el}
+                  className="mb-2 mr-1 px-3 py-0 bg-slate-400 rounded-xl text-white font-light"
+                >
                   {el}
                 </span>
               ))}

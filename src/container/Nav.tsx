@@ -15,8 +15,8 @@ const Nav = () => {
         <Link to="/blog">
           <div className="mr-3">Blog</div>
         </Link>
-        <Link to="/resume">
-          <div className="mr-3">Resume</div>
+        <Link to="/about">
+          <div className="mr-3">About</div>
         </Link>
 
         {userId && (
