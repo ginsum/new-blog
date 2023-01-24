@@ -18,3 +18,7 @@ Tailwindcss, Firebase, Toast-UI, Recoil, React-spring
 - Firebase 사용하여 서버 없이 데이터 저장, 로그인 관리
 - Tailwindcss 사용하여 스타일 관리
 - Recoil 사용하여 User 정보 관리
+
+### 배포
+
+- vercel을 사용하여 배포
