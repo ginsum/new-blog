@@ -1,11 +1,20 @@
-## Blog 사이트 (진행 중)
+## Blog 2023
+
+- 블로그를 작성하고 수정 가능
+- 소개를 보여줄 수 있는 페이지 추가
+
+### 배포 주소
+
+https://hello-hello-bay.vercel.app
 
 ### 사용 기술
 
-React, Typescript, tailwindcss,
+React, Typescript,  
+Tailwindcss, Firebase, Toast-UI, Recoil, React-spring
 
 ### 기능
 
-- 블로그 글을 작성하고 수정 삭제할 수 있는 기능
-- toast-ui 사용하여 Markdown 형식으로 글 등록 기능
-- firebase 사용하여 서버 없이 데이터 저장 (기능 추가 예정)
+- Toast-UI 사용하여 Markdown 형식으로 글 등록 기능
+- Firebase 사용하여 서버 없이 데이터 저장, 로그인 관리
+- Tailwindcss 사용하여 스타일 관리
+- Recoil 사용하여 User 정보 관리
