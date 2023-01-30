@@ -42,9 +42,7 @@ const Intro = () => {
 
   return (
     <div
-      className={`flex flex-col w-full h-screen justify-center items-center ${
-        isClicked ? 'bg-gradient-to-t from-indigo-500' : ''
-      }`}
+      className={`flex flex-col w-full h-screen justify-center items-center`}
     >
       <div
         className="flex flex-wrap justify-center w-[300px] md:w-[500px] mb-20"

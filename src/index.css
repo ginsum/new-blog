@@ -14,10 +14,11 @@
 
 .toastui-editor-contents p {
   font-size: 15px;
+  margin-bottom: 12px !important;
 }
 
 .toastui-editor-contents ul li {
-  margin-bottom: 6px !important;
+  margin-bottom: 12px !important;
 }
 
 .toastui-editor-contents h3 {
