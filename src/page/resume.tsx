@@ -23,7 +23,7 @@ const Resume = () => {
   }, []);
 
   return resumeData ? (
-    <div className="flex flex-col justify-center container mx-auto w-full md:w-[640px] px-5 md:px-6 pt-10 pb-28 tracking-tight ">
+    <div className="flex flex-col justify-center container mx-auto w-full md:w-[680px] px-5 md:px-6 pt-10 pb-28 tracking-tight ">
       <div className="text-2xl font-bold mb-4 text-blue-900">About</div>
       <div className="">
         <div className="text-xl font-medium mb-1 text-zinc-800">
@@ -47,7 +47,7 @@ const Resume = () => {
       </div>
       <Card>
         <div className="">
-          <div className="text-xl font-light mb-4 text-blue-600">경험</div>
+          <div className="text-lg font-light mb-4 text-blue-600">경험</div>
           <div className="flex flex-col dt:flex-row ">
             <div className="flex justify-between mb-4 md:mb-8">
               <div className="flex flex-col">
@@ -100,13 +100,13 @@ const Resume = () => {
       </Card>
       <Card>
         <div className="flex flex-col md:flex-row">
-          <div className="w-20 text-xl font-light mb-2 text-blue-700">기술</div>
+          <div className="w-20 text-lg font-light mr-4 text-blue-700">기술</div>
           <div className="flex flex-col">
             <div className="flex flex-wrap mb-2">
               {skill?.stack.map((el: string) => (
                 <span
                   key={el}
-                  className="mr-1 px-3 py-0 bg-zinc-400 rounded-xl text-white font-light"
+                  className="mr-1 mb-2 px-3 py-1 bg-zinc-400 rounded-xl text-sm text-white font-light"
                 >
                   {el}
                 </span>
@@ -116,7 +116,7 @@ const Resume = () => {
               {skill?.tool.map((el: string) => (
                 <span
                   key={el}
-                  className="mb-2 mr-1 px-3 py-0 bg-slate-400 rounded-xl text-white font-light"
+                  className="mb-2 mr-1 px-3 py-1 bg-slate-400 rounded-xl text-sm text-white font-light"
                 >
                   {el}
                 </span>
@@ -127,16 +127,16 @@ const Resume = () => {
       </Card>
       <Card>
         <div className="flex flex-col md:flex-row">
-          <div className="w-20 text-xl font-light mb-2 text-blue-700">교육</div>
+          <div className="w-20 text-lg font-light mb-2 text-blue-700">교육</div>
           {education && (
             <div className="flex flex-col text-zinc-700">
-              <div>
+              <div className="mb-2">
                 <span className="mr-2">{education[1][0]}</span>
-                <span>{education[1][1]}</span>
+                <span className="text-xs">{education[1][1]}</span>
               </div>
               <div>
                 <span className="mr-2">{education[2][0]}</span>
-                <span>{education[2][1]}</span>
+                <span className="text-xs">{education[2][1]}</span>
               </div>
             </div>
           )}
@@ -144,8 +144,11 @@ const Resume = () => {
       </Card>
       <Card>
         <div className="flex flex-col md:flex-row">
-          <div className="w-20 text-xl font-light mb-2 text-blue-700">기타</div>
-          <div className="flex flex-col text-zinc-700">{etc && etc[1][0]}</div>
+          <div className="w-20 text-lg font-light text-blue-700">기타</div>
+          <div className="flex items-center text-zinc-700">
+            <span className="mr-2">{etc && etc[1][0]}</span>
+            <span className="text-xs">{etc && etc[1][1]}</span>
+          </div>
         </div>
       </Card>
     </div>

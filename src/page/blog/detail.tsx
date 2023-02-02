@@ -22,7 +22,7 @@ const BlogDetail = () => {
   }, []);
 
   return (
-    <div className="flex flex-col container mx-auto w-full md:w-[640px] px-6 py-8 h-full">
+    <div className="flex flex-col container mx-auto w-full md:w-[680px] px-6 py-8 h-full">
       <div className="flex self-end mb-4 text-sm">
         <Link to="/blog">목록으로</Link>
         {userId && <Link to={`/write/${id}`}>수정</Link>}
