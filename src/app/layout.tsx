@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Gothic_A1 } from "next/font/google";
 
+import Nav from "src/container/Nav";
+
 import "../index.css";
+import { RecoilProvider } from "src/components/RecoilProvider";
 
 export const metadata: Metadata = {
   title: "Hello Hello",
@@ -23,7 +26,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={gothicA1.className}>
       <body>
-        <div id="root">{children}</div>
+        <RecoilProvider>
+          <div id="root" className="w-full min-h-screen bg-neutral-100">
+            <Nav />
+            {children}
+          </div>
+        </RecoilProvider>
       </body>
     </html>
   );

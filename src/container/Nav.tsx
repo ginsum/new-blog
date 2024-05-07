@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+"use client";
 
-import { userIdState } from '../recoil/atom';
+import Link from "next/link";
+import { useRecoilValue } from "recoil";
+
+import { userIdState } from "../recoil/atom";
 
 const Nav = () => {
   const userId = useRecoilValue(userIdState);
@@ -9,18 +11,18 @@ const Nav = () => {
   return (
     <div className="w-full h-12">
       <div className="flex container mx-auto w-full md:w-[640px] py-3 justify-end items-center text-zinc-400 text-sm">
-        <Link to="/">
+        <Link href="/">
           <div className="mr-3">Home</div>
         </Link>
-        <Link to="/blog">
+        <Link href="/blog">
           <div className="mr-3">Blog</div>
         </Link>
-        <Link to="/about">
+        <Link href="/about">
           <div className="mr-3">About</div>
         </Link>
 
         {userId && (
-          <Link to="/write">
+          <Link href="/write">
             <div>Write</div>
           </Link>
         )}

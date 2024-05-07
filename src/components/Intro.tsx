@@ -1,22 +1,24 @@
-import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useTrail, animated } from '@react-spring/web';
+"use client";
+
+import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useTrail, animated } from "@react-spring/web";
 
 const itemsFront = [
-  '<',
-  'H',
-  'E',
-  'L',
-  'L',
-  'O',
-  'W',
-  'O',
-  'R',
-  'L',
-  'D',
-  '/>',
+  "<",
+  "H",
+  "E",
+  "L",
+  "L",
+  "O",
+  "W",
+  "O",
+  "R",
+  "L",
+  "D",
+  "/>",
 ];
-const items = ['r', 'e', 't', 'u', 'r', 'n', '', 'B', 'L', 'O', 'G', '.'];
+const items = ["r", "e", "t", "u", "r", "n", "", "B", "L", "O", "G", "."];
 
 const Intro = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -24,19 +26,19 @@ const Intro = () => {
     rotateX: 0,
   }));
 
-  const navigate = useNavigate();
+  const router = useRouter();
   const isFlipped = useRef(false);
 
   const handleClick = () => {
     if (isFlipped.current) {
-      navigate('/blog');
+      router.push("/blog");
     } else {
       setIsClicked(true);
       api.start({
         rotateX: 180,
       });
       isFlipped.current = true;
-      setTimeout(() => navigate('/blog'), 2400);
+      setTimeout(() => router.push("/blog"), 2400);
     }
   };
 
@@ -59,8 +61,8 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${val}deg)`
                 ),
-                transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden',
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
               }}
               className="absolute cursor-pointer"
             >
@@ -71,8 +73,8 @@ const Intro = () => {
                 transform: rotateX.to(
                   (val) => `perspective(600px) rotateX(${180 - val}deg)`
                 ),
-                transformStyle: 'preserve-3d',
-                backfaceVisibility: 'hidden',
+                transformStyle: "preserve-3d",
+                backfaceVisibility: "hidden",
               }}
               className="absolute cursor-pointer"
             >
