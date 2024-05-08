@@ -1,4 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+"use client";
+
+import { useRouter } from "next/navigation";
 
 const ListCard = ({
   title,
@@ -13,12 +15,12 @@ const ListCard = ({
   id: string;
   date: string;
 }) => {
-  let navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div
       className="w-full md:w-[640px] px-8 pt-7 pb-8 my-2 cursor-pointer border border-zinc-200 rounded-2xl shadow"
-      onClick={() => navigate(id)}
+      onClick={() => router.push(`/blog/${id}`)}
     >
       <div className="flex flex-col md:flex-row justify-between pb-2 border-b border-zinc-300">
         <div className="flex flex-col md:flex-row items-start md:items-center">
@@ -35,8 +37,8 @@ const ListCard = ({
       <div
         className="w-64 md:w-[576px] h-14 mt-4 text-sm text-zinc-500 overflow-hidden"
         style={{
-          display: '-webkit-box',
-          WebkitBoxOrient: 'vertical',
+          display: "-webkit-box",
+          WebkitBoxOrient: "vertical",
           WebkitLineClamp: 4,
         }}
       >
