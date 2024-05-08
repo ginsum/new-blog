@@ -1,33 +1,36 @@
+"use client";
+
 import { useEffect, useState, useRef } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
-import { getBlogPost, postBlogPost, updateBlogPost } from "../firebase/content";
+import { postBlogPost, updateBlogPost } from "../firebase/content";
 
 import { userIdState } from "../recoil/atom";
 
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-const Writer = () => {
-  const [title, setTitle] = useState<string>("");
-  const [category, setCategory] = useState<string>("");
+interface Props {
+  id?: string;
+  title?: string;
+  category?: string;
+  content?: string;
+}
+
+const Writer = ({ id, title = "", category = "", content = "" }: Props) => {
+  const [titleInput, setTitle] = useState<string>(title);
+  const [categoryInput, setCategory] = useState<string>(category);
   const userId = useRecoilValue(userIdState);
 
-  const { id = "" } = useParams();
+  const router = useRouter();
 
   const editorRef = useRef<any>();
-  const navigate = useNavigate();
-
-  const getPost = async () => {
-    const postData = await getBlogPost(id);
-    editorRef.current?.getInstance().setMarkdown(postData?.content);
-    setTitle(postData?.title);
-  };
 
   useEffect(() => {
-    if (id) {
-      getPost();
+    if (content) {
+      editorRef.current?.getInstance().setMarkdown(content);
     }
   }, []);
 
@@ -48,7 +51,7 @@ const Writer = () => {
       }
 
       alert("제출이 완료되었습니다. 감사합니다.");
-      navigate("/blog");
+      router.push("/blog");
     } else {
       alert("로그인이 필요합니다");
     }
@@ -59,13 +62,13 @@ const Writer = () => {
       <div>
         <input
           type="text"
-          value={title}
+          value={titleInput}
           className="w-full h-10 p-4 mb-4 border"
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="text"
-          value={category}
+          value={categoryInput}
           className="w-full h-10 p-4 mb-4 border"
           onChange={(e) => setCategory(e.target.value)}
         />
@@ -81,7 +84,7 @@ const Writer = () => {
       </div>
       <div className="flex self-end mt-5 text-sm">
         <button className=" mr-4">
-          <Link to="/blog">취소</Link>
+          <Link href="/blog">취소</Link>
         </button>
         <button className=" " onClick={onClickButton}>
           등록
