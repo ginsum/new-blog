@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useTrail, animated } from "@react-spring/web";
 
@@ -21,7 +21,6 @@ const itemsFront = [
 const items = ["r", "e", "t", "u", "r", "n", "", "B", "L", "O", "G", "."];
 
 const Intro = () => {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
   const [trail, api] = useTrail(items.length, () => ({
     rotateX: 0,
   }));
@@ -33,7 +32,6 @@ const Intro = () => {
     if (isFlipped.current) {
       router.push("/blog");
     } else {
-      setIsClicked(true);
       api.start({
         rotateX: 180,
       });
