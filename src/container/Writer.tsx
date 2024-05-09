@@ -32,7 +32,7 @@ const Writer = ({ id, title = "", category = "", content = "" }: Props) => {
     if (content) {
       editorRef.current?.getInstance().setMarkdown(content);
     }
-  }, []);
+  }, [content]);
 
   const onClickButton = async () => {
     if (userId) {
