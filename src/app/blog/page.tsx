@@ -12,7 +12,10 @@ export default async function BlogPage() {
         <div className="text-2xl font-bold mb-8 text-blue-900">Blog</div>
         <div className="flex mb-8">
           <div className="w-14 h-14 rounded-full bg-zinc-400 mr-6 overflow-hidden">
-            <img src="https://avatars.githubusercontent.com/u/50772349?v=4" />
+            <img
+              src="https://avatars.githubusercontent.com/u/50772349?v=4"
+              alt="profile"
+            />
           </div>
           <div className="text-zinc-600">
             <div className=" text-zinc-600 font-medium">ginsum</div>

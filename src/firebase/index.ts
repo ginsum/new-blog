@@ -1,6 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
