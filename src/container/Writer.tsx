@@ -39,8 +39,8 @@ const Writer = ({ id, title = "", category = "", content = "" }: Props) => {
       const editorInstance = editorRef.current.getInstance();
 
       const data = {
-        title,
-        category,
+        title: titleInput,
+        category: categoryInput,
         content: editorInstance.getMarkdown(),
       };
 

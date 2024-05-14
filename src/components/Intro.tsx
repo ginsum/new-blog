@@ -18,7 +18,7 @@ const itemsFront = [
   "D",
   "/>",
 ];
-const items = ["r", "e", "t", "u", "r", "n", "", "B", "L", "O", "G", "."];
+const items = ["<", "h", "e", "l", "l", "o", "!", "b", "l", "o", "g", "/>"];
 
 const Intro = () => {
   const [trail, api] = useTrail(items.length, () => ({
@@ -36,7 +36,7 @@ const Intro = () => {
         rotateX: 180,
       });
       isFlipped.current = true;
-      setTimeout(() => router.push("/blog"), 2400);
+      setTimeout(() => router.push("/blog"), 2200);
     }
   };
 
