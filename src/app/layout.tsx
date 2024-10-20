@@ -4,7 +4,7 @@ import { Gothic_A1 } from "next/font/google";
 import Nav from "src/container/Nav";
 
 import "../index.css";
-import { RecoilProvider } from "src/components/RecoilProvider";
+import { RecoilProvider } from "src/container/RecoilProvider";
 
 export const metadata: Metadata = {
   title: "Hello Hello",

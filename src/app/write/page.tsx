@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import Loading from "src/components/Loading";
+import Loading from "src/container/Loading";
 
 const DynamicWriter = dynamic(() => import("src/container/Writer"), {
   ssr: false,

@@ -16,7 +16,7 @@ const Login = () => {
 
   const onClickSubmit = async () => {
     const userId = await login(email, password);
-    console.log(userId, "sue");
+
     if (userId) {
       setUserId(userId);
       router.push("/");

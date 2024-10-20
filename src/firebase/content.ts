@@ -10,7 +10,9 @@ import { getISOformat } from "../util";
 import { BlogData } from "../types/blog";
 import { store } from "./index";
 
-const blogContent = collection(store, "2022_blog");
+const BLOG_COLLECTION = "2022_blog";
+
+const blogContent = collection(store, BLOG_COLLECTION);
 
 export const getBlogList = async () => {
   try {
@@ -33,7 +35,7 @@ export const getBlogList = async () => {
 
 export const getBlogPost = async (postId: string) => {
   try {
-    const postData = await getDoc(doc(store, "2022_blog", postId));
+    const postData = await getDoc(doc(store, BLOG_COLLECTION, postId));
 
     return postData.data();
   } catch (e) {
@@ -47,9 +49,9 @@ export const postBlogPost = async (id: string, data: BlogData) => {
   data.date = getISOformat(+docId);
   data.userId = id;
 
-  await setDoc(doc(store, "2022_blog", docId), data);
+  await setDoc(doc(store, BLOG_COLLECTION, docId), data);
 };
 
 export const updateBlogPost = async (docId: string, data: BlogData) => {
-  await updateDoc(doc(store, "2022_blog", docId), data);
+  await updateDoc(doc(store, BLOG_COLLECTION, docId), data);
 };

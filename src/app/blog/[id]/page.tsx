@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import EditButton from "src/components/EditButton";
+import EditLink from "src/components/EditLink";
 
-import Loading from "src/components/Loading";
+import Loading from "src/container/Loading";
 import PostView from "src/container/Viewer";
 import { getBlogPost } from "src/firebase/content";
 
@@ -19,7 +19,7 @@ export default async function BlogDetailPage({
       <div className="flex flex-col container mx-auto w-full md:w-[680px] px-6 py-8 h-full">
         <div className="flex self-end mb-4 text-sm">
           <Link href="/blog">목록으로</Link>
-          <EditButton id={id} />
+          <EditLink id={id} />
         </div>
         <div className="flex justify-center w-24 py-1 mb-2 text-xs bg-blue-400 text-white rounded-xl">
           {post?.category}

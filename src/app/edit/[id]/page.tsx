@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import Loading from "src/components/Loading";
+import Loading from "src/container/Loading";
 import Writer from "src/container/Writer";
 import { getBlogPost } from "src/firebase/content";
 

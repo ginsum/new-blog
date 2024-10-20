@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ListCard from "src/components/ListCard";
-import Loading from "src/components/Loading";
+import Loading from "src/container/Loading";
 import { getBlogList } from "src/firebase/content";
 
 export default async function BlogPage() {
@@ -20,7 +20,7 @@ export default async function BlogPage() {
           <div className="text-zinc-600">
             <div className=" text-zinc-600 font-medium">ginsum</div>
             <div className="w-44 md:w-96 text-zinc-400 text-sm whitespace-pre-line">
-              개인적으로 기록이 필요한 것들을 짧게 기록하고 있습니다.
+              짧은 기록
             </div>
           </div>
         </div>

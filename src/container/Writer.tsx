@@ -2,15 +2,14 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRecoilValue } from "recoil";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
+import { Editor } from "@toast-ui/react-editor";
 import { postBlogPost, updateBlogPost } from "../firebase/content";
-
 import { userIdState } from "../recoil/atom";
 
 import "@toast-ui/editor/dist/toastui-editor.css";
-import { Editor } from "@toast-ui/react-editor";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 interface Props {
   id?: string;
@@ -86,9 +85,7 @@ const Writer = ({ id, title = "", category = "", content = "" }: Props) => {
         <button className=" mr-4">
           <Link href="/blog">취소</Link>
         </button>
-        <button className=" " onClick={onClickButton}>
-          등록
-        </button>
+        <button onClick={onClickButton}>등록</button>
       </div>
     </>
   );
