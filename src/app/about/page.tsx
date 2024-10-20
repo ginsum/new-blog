@@ -37,14 +37,17 @@ export default async function AboutPage() {
         <InfoCard title={"경험"}>
           <div className="flex flex-col dt:flex-row">
             <div>
-              {experience.reverse().map(({ company, date, description }) => (
-                <ExperienceCard
-                  key={company}
-                  company={company}
-                  date={date}
-                  description={description}
-                />
-              ))}
+              {experience
+                .reverse()
+                .map(({ company, date, description, detail }) => (
+                  <ExperienceCard
+                    key={company}
+                    company={company}
+                    date={date}
+                    description={description}
+                    detail={detail}
+                  />
+                ))}
             </div>
           </div>
         </InfoCard>
